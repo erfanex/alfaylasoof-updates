@@ -1,16 +1,15 @@
 {
   "appName": "الفيلسوف",
-  "versionName": "5.8.0",
-  "versionCode": 58,
+  "versionName": "5.9.0",
+  "versionCode": 59,
   "minimumVersionCode": 58,
   "forceUpdate": false,
-  "downloadUrl": "https://github.com/erfanex/alfaylasoof-updates/releases/latest/download/AlFaylasoof.apk",
+  "downloadUrl": "https://github.com/erfanex/alfaylasoof-updates/releases/download/v5.9.0/AlFaylasoof-v5.9.0.apk",
   "title": "تحديث جديد للفيلسوف",
-  "message": "تم إصدار نسخة جديدة من تطبيق الفيلسوف مع تحسينات وإضافات جديدة.",
+  "message": "تم إصدار النسخة 5.9.0 من تطبيق الفيلسوف.",
   "releaseNotes": [
     "تحسين أداء التطبيق",
-    "إضافة مميزات جديدة",
-    "إصلاح الأخطاء والمشاكل السابقة",
-    "تحسين تجربة الاستخدام"
+    "تحسينات عامة",
+    "إصلاح الأخطاء والمشاكل السابقة"
   ]
 }
