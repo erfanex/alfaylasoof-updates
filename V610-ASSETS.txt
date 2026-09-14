@@ -1,0 +1,12 @@
+v6.1.0 image assets
+
+App icon:
+https://g.top4top.io/p_3908h49kh0.png
+
+Splash screen:
+https://h.top4top.io/p_3908modo01.png
+
+Hydra/Faylasoof logo:
+https://i.top4top.io/p_3908gteua2.png
+
+Run DOWNLOAD_V610_ASSETS.sh from the project root before the final Android build to download the three images into the project and replace the fallback launcher icon.

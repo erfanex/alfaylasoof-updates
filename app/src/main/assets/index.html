@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta name="description" content="الفيلسوف — منصة المعرفة والرأي">
+  <title>الفيلسوف</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div id="appSplash" class="app-splash" aria-live="polite">
+  <img class="splash-image" src="images/splash.png" alt="الفيلسوف" onerror="this.style.display='none';">
+  <div class="splash-fallback"><div class="splash-logo">𓂀</div><div class="splash-title">الفيلسوف</div></div>
+  <div id="splashStatus">جاري التحميل...</div>
+</div>
+  <div id="faylasoofRoot">
+  <div class="side-overlay" id="sideOverlay" onclick="closeMenu()"></div>
+
+  <aside class="side-menu" id="sideMenu">
+    <div class="side-header">
+      <div class="pharaoh-logo side-pharaoh" aria-hidden="true">𓂀</div>
+      <h2>الفيلسوف</h2>
+      <p>القائمة الرئيسية</p>
+    </div>
+    <div class="side-divider"></div>
+    <nav class="side-nav">
+      <button class="side-item active" data-page="home" onclick="showPage('home')"><span class="icon">⌂</span> الرئيسية</button>
+      <button class="side-item" data-page="favorites" onclick="showPage('favorites')"><span class="icon">★</span> المفضلة</button>
+      <button class="side-item" onclick="openAddWisdom()"><span class="icon">✦</span> إضافة حكمة</button>
+      <button class="side-item" data-page="settings" onclick="showPage('settings')"><span class="icon">⚙️</span> إعدادات التطبيق</button>
+      <button class="side-item" onclick="checkForAppUpdate(false)"><span class="icon">↻</span> تحديث التطبيق</button>
+      <button class="side-item" data-page="about" onclick="showPage('about')"><span class="icon">ⓘ</span> عن التطبيق</button>
+      <button class="side-item" onclick="shareAppNative()"><span class="icon">↗</span> مشاركة التطبيق</button>
+    </nav>
+    <div class="side-footer">سينما الفيلسوف — تجربة تفاعلية<br>© 2026</div>
+  </aside>
+
+  <header class="app-header">
+    <button class="header-btn" onclick="openMenu()" aria-label="القائمة">☰</button>
+    <div class="logo-area">
+      <div class="pharaoh-logo header-pharaoh" aria-hidden="true">𓂀</div>
+      <div class="logo-text">
+        <h1>الفيلسوف</h1>
+        <p>منصة المعرفة والرأي</p>
+      </div>
+    </div>
+    <button class="header-btn" onclick="showPage('settings')" aria-label="الإعدادات">⚙️</button>
+  </header>
+
+  <!-- HOME -->
+  <div class="app-page active" id="page-home">
+    <div class="wisdom-card">
+      <h3>حكمة اليوم</h3>
+      <p id="wisdomText">"ليس المهم أن تكون أفضل من الآخرين، بل أن تكون أفضل من نفسك بالأمس."</p>
+    </div>
+
+    <div class="quick-actions v611-actions horizontal-actions">
+      <button class="qa-btn glow-border" onclick="showPage('cinema')"><i>🎞️</i><span>السينما</span></button>
+      <button class="qa-btn glow-border" onclick="showPage('luck')"><i>🎲</i><span>حظك اليوم</span></button>
+      <button class="qa-btn settings-gear" onclick="showPage('settings')"><i>⚙️</i><span>الإعدادات</span></button>
+    </div>
+
+    <button type="button" class="pharaoh-sections-btn" onclick="openBlogInApp('https://alfaylasooof.blogspot.com','مدونة الفيلسوف')">
+      <span class="ps-icon">𓂀</span>
+      <span class="ps-text">
+        <strong>المدونة</strong>
+        <small>اضغط لفتح مدونة الفيلسوف</small>
+      </span>
+      <span class="ps-arrow">‹</span>
+    </button>
+    <div class="section-title sections-header" style="margin-top:18px">
+      <h2>𓋹 التصنيفات</h2>
+    </div>
+    <div class="categories-grid" id="categoriesGrid">
+      <!-- filled by JS from blog labels -->
+    </div>
+
+    <div class="app-footer">الفيلسوف — منصة المعرفة والرأي</div>
+  </div>
+
+  <div class="app-page" id="page-cinema">
+    <div class="section-title effects-title"><h2>🎬 السينما والمسرح</h2></div>
+    <div class="cinema-tabs-sticky" id="cinemaTabsSticky">
+      <button class="cat-tab active" data-cat="arabic" onclick="openCinemaCategory('arabic')">🎞️ أفلام عربي</button>
+      <button class="cat-tab" data-cat="foreign" onclick="openCinemaCategory('foreign')">🎬 أفلام أجنبي</button>
+      <button class="cat-tab" data-cat="plays" onclick="openCinemaCategory('plays')">🎭 مسرحيات</button>
+    </div>
+    <div id="cinemaCategoryContent"></div>
+    <div class="movies-grid" id="moviesGrid"></div>
+  </div>
+
+  <div class="app-page" id="page-luck">
+    <div class="section-title effects-title"><h2>🎲 حظك اليوم</h2></div>
+    <div class="luck-main-card full-border-card">
+      <button class="luck-main-button animated-border-button" onclick="openLuckCard()"><span>🎲 حظك اليوم</span></button>
+      <small>قراءة مختصرة جديدة لحظك اليوم</small>
+    </div>
+    <div class="zodiac-main-card full-border-card">
+      <button class="zodiac-main-button animated-border-button" onclick="openZodiacList()"><span>♈ الأبراج</span></button>
+      <small>اختر برجك وشاهد قراءتك</small>
+    </div>
+  </div>
+
+  <div class="luck-overlay" id="luckOverlay" aria-hidden="true">
+    <div class="luck-result-card">
+      <button class="overlay-close" onclick="closeLuckOverlay()">✕</button>
+      <h2>حظك اليوم</h2>
+      <img id="luckResultImage" alt="حظك اليوم">
+      <div class="result-actions"><button onclick="saveLuckCard()">💾 حفظ</button><button onclick="shareLuckCardNative()">📤 مشاركة</button></div>
+    </div>
+  </div>
+
+  <div class="zodiac-overlay" id="zodiacOverlay" aria-hidden="true">
+    <div class="zodiac-panel">
+      <button class="overlay-close" onclick="closeZodiacList()">✕</button>
+      <div id="zodiacListView">
+        <div class="section-title effects-title"><h2>♈ الأبراج</h2></div>
+        <p class="zodiac-note">اختر برجك من القائمة</p>
+        <div class="zodiac-grid" id="zodiacGrid"></div>
+      </div>
+      <div id="zodiacDetailView" hidden></div>
+    </div>
+  </div>
+
+  <div class="app-page" id="page-search">
+    <div class="section-title"><h2>🔍 البحث</h2></div>
+    <div class="search-box">
+      <input type="search" id="searchInput" placeholder="ابحث في مقالات الفيلسوف..." onkeydown="if(event.key==='Enter')doSearch()">
+      <button onclick="doSearch()">بحث</button>
+    </div>
+    <div class="search-hint" id="searchHint">اكتب كلمة أو عنوان مقال ثم اضغط بحث. ستظهر النتائج داخل التطبيق.</div>
+    <div class="search-suggestions" id="searchSuggestions"></div>
+    <div class="recent-searches" id="recentSearches"></div>
+    <div id="searchResults" class="search-results"></div>
+  </div>
+
+  <div class="app-page" id="page-favorites">
+    <div class="section-title"><h2>⭐ المفضلة</h2></div>
+
+    <div class="fav-section-card" onclick="toggleFavSection('cinema')">
+      <div class="fav-section-header">
+        <span>🎬 الفيديوهات المحفوظة</span>
+        <span class="fav-badge" id="favCinemaCount">0</span>
+      </div>
+    </div>
+    <div id="cinemaFavoritesList" class="saved-list fav-section-body" hidden></div>
+
+    <div class="fav-section-card" onclick="toggleFavSection('articles')">
+      <div class="fav-section-header">
+        <span>📰 المقالات المحفوظة</span>
+        <span class="fav-badge" id="favArticlesCount">0</span>
+      </div>
+    </div>
+    <div id="favoritesList" class="saved-list fav-section-body" hidden></div>
+
+    <div class="fav-section-card" onclick="toggleFavSection('wisdom')">
+      <div class="fav-section-header">
+        <span>💡 الحكم المحفوظة</span>
+        <span class="fav-badge" id="favWisdomCount">0</span>
+      </div>
+    </div>
+    <div id="wisdomFavoritesList" class="saved-list fav-section-body" hidden></div>
+
+    <div class="fav-section-card" onclick="toggleFavSection('added')">
+      <div class="fav-section-header">
+        <span>✦ الحكم المضافة</span>
+        <span class="fav-badge" id="favAddedCount">0</span>
+      </div>
+    </div>
+    <div id="addedWisdomList" class="saved-list fav-section-body" hidden></div>
+  </div>
+
+  <div class="app-page" id="page-settings">
+    <div class="section-title effects-title"><h2>⚙️ إعدادات التطبيق</h2></div>
+    <div class="settings-accordion">
+      <details class="settings-group" open><summary>🔊 الصوت</summary><div class="settings-content">
+        <div class="setting-row"><label>تفعيل الصوت</label><div class="toggle" id="soundToggle" onclick="toggleSound()"></div></div>
+        <div class="setting-row"><label>مستوى الصوت</label><input type="range" class="volume-slider" id="volumeSlider" min="0" max="1" step="0.1" value="0.5"></div>
+        <div class="sound-presets">
+          <button class="sound-preset" data-pack="classic" onclick="setSoundPack('classic')">كلاسيك</button>
+          <button class="sound-preset" data-pack="soft" onclick="setSoundPack('soft')">ناعم</button>
+          <button class="sound-preset" data-pack="digital" onclick="setSoundPack('digital')">رقمي</button>
+          <button class="sound-preset" data-pack="click" onclick="setSoundPack('click')">نقر</button>
+          <button class="sound-preset" data-pack="deep" onclick="setSoundPack('deep')">عميق</button>
+          <button class="sound-preset" data-pack="pop" onclick="setSoundPack('pop')">خفيف</button>
+        </div>
+      </div></details>
+      <details class="settings-group" open><summary>🎨 اللون والخلفية</summary><div class="settings-content">
+        <label>لون التطبيق</label>
+        <div class="color-presets color-six color-swatches">
+          <button class="preset-btn color-swatch" data-theme="blue" style="background:#3b82f6" onclick="setTheme('blue')" title="أزرق"></button>
+          <button class="preset-btn color-swatch" data-theme="green" style="background:#22c55e" onclick="setTheme('green')" title="أخضر"></button>
+          <button class="preset-btn color-swatch" data-theme="red" style="background:#ef4444" onclick="setTheme('red')" title="أحمر"></button>
+          <button class="preset-btn color-swatch" data-theme="purple" style="background:#a855f7" onclick="setTheme('purple')" title="بنفسجي"></button>
+          <button class="preset-btn color-swatch" data-theme="orange" style="background:#f97316" onclick="setTheme('orange')" title="برتقالي"></button>
+          <button class="preset-btn color-swatch" data-theme="gold" style="background:#d4a017" onclick="setTheme('gold')" title="ذهبي"></button>
+        </div>
+        <label>الخلفيات</label>
+        <div class="bg-presets bg-six bg-visual">
+          <button class="preset-btn bg-visual-btn bg-preview-default" data-bg="default" onclick="setBg('default')" title="افتراضي"></button>
+          <button class="preset-btn bg-visual-btn bg-preview-gradient" data-bg="gradient" onclick="setBg('gradient')" title="تدرج"></button>
+          <button class="preset-btn bg-visual-btn bg-preview-stars" data-bg="stars" onclick="setBg('stars')" title="نجوم"></button>
+          <button class="preset-btn bg-visual-btn bg-preview-night" data-bg="night" onclick="setBg('night')" title="ليلي"></button>
+          <button class="preset-btn bg-visual-btn bg-preview-forest" data-bg="forest" onclick="setBg('forest')" title="غابة"></button>
+          <button class="preset-btn bg-visual-btn bg-preview-royal" data-bg="royal" onclick="setBg('royal')" title="ملكي"></button>
+        </div>
+      </div></details>
+      <details class="settings-group"><summary>🖥️ المنظر</summary><div class="settings-content">
+        <div class="setting-row"><label>حجم النص</label><input type="range" id="fontSizeSlider" min="0.85" max="1.3" step="0.05" value="1"></div>
+        <div class="setting-row"><label>حجم العرض</label><input type="range" id="displayScaleSlider" min="0.9" max="1.15" step="0.05" value="1"></div>
+        <div class="setting-row"><label>المظهر</label><span class="setting-note" style="margin:0">نظام ألوان فرعوني ثابت — اختر اللون والخلفية من الأعلى</span></div>
+      </div></details>
+      <details class="settings-group"><summary>🔔 الإشعارات</summary><div class="settings-content">
+        <div class="setting-row"><label>السماح بالإشعارات</label><div class="toggle" id="notifyToggle" onclick="requestNativePermissions()"></div></div>
+        <div class="setting-row"><label>📰 مقالات جديدة</label><div class="toggle on" id="notifyBlogToggle"></div></div>
+        <div class="setting-row"><label>🎬 فيديو جديد</label><div class="toggle on" id="notifyCinemaToggle"></div></div>
+        <p class="setting-note">تعمل الإشعارات المحلية عندما يسمح بها نظام الهاتف.</p>
+      </div></details>
+    </div>
+  </div>
+
+  <div class="app-page" id="page-about">
+    <div class="section-title effects-title"><h2>ℹ️ عن التطبيق</h2></div>
+    <div class="about-card settings-group">
+      <h3>الفيلسوف</h3>
+      <p>الإصدار: <strong id="appVersionText">v6.5.0</strong></p>
+      <h3>من نحن</h3>
+      <p class="about-description">الفيلسوف تطبيق عربي يهدف إلى تقديم محتوى متنوع ومفيد للقارئ، مع الاهتمام بالأخبار والمعلومات والثقافة والتكنولوجيا والعلوم والصحة والرياضة والسينما والأدب.<br><br>نعمل على تقديم المحتوى بصورة واضحة ومنظمة، مع الحرص على تحسين تجربة الزائر وسهولة الوصول إلى المعلومات.<br><br><strong>هدفنا</strong><br>تقديم محتوى عربي متنوع يساعد القارئ على الوصول إلى المعلومات والأفكار بصورة مبسطة ومنظمة</p>
+      <button class="share-app-big" onclick="shareAppNative()">📤 مشاركة التطبيق</button>
+    </div>
+  </div>
+
+  <!-- Bottom Nav: Home | Random Article | Random Video | Back -->
+  <nav class="bottom-nav">
+    <button class="nav-item" data-page="home" onclick="showPage('home')"><i>🖥️</i><span>الرئيسية</span></button>
+    <button class="nav-item" onclick="openRandomArticle()"><i>📃</i><span>مقال عشوائي</span></button>
+    <button class="nav-item" onclick="openRandomMovie()"><i>🎬</i><span>فيديو عشوائي</span></button>
+    <button class="nav-item" onclick="goBack()"><i>↪️</i><span>رجوع</span></button>
+  </nav>
+
+  <div class="category-hub" id="categoryHub" aria-hidden="true">
+    <div class="category-hub-box"><button class="category-hub-close" onclick="closeCategoryHub()">✕</button><div id="categoryHubContent"></div></div>
+  </div>
+
+  <!-- Blog Modal -->
+  <div class="blog-modal" id="blogModal" aria-hidden="true">
+    <div class="blog-header">
+      <button type="button" class="blog-back" onclick="closeBlogInApp()" aria-label="رجوع">←</button>
+      <h3 id="blogTitle">المدونة</h3>
+      <div class="blog-tools"><button type="button" onclick="refreshBlog()" aria-label="تحديث">↻</button><button type="button" class="blog-fullscreen" onclick="toggleFullscreenBlog()" aria-label="ملء الشاشة">⛶</button></div>
+    </div>
+    <div id="blogWrap">
+      <iframe id="blogFrame" title="مدونة الفيلسوف" allow="fullscreen; clipboard-write; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      <div id="blogError" class="blog-error" hidden>
+        <div class="error-icon">📡</div><h3>تعذر تحميل المدونة</h3>
+        <p id="blogErrorText">تحقق من اتصال الإنترنت ثم حاول مرة أخرى.</p>
+        <button onclick="retryBlog()">إعادة المحاولة</button>
+      </div>
+      <div id="blogOffline" class="blog-offline" hidden>📡 لا يوجد اتصال — سيتم عرض آخر محتوى متاح إن وُجد.</div>
+    </div>
+  </div>
+
+  <!-- Video Modal -->
+  <div class="video-modal" id="videoModal">
+    <div class="video-header">
+      <button type="button" onclick="closeVideo()" title="إغلاق">✕</button>
+      <h3 id="videoTitle">مشاهدة</h3>
+      <button type="button" onclick="toggleFullscreenVideo()" title="ملء الشاشة">⛶</button>
+    </div>
+    <div id="videoWrap">
+      <iframe id="videoFrame" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen playsinline webkit-playsinline></iframe>
+    </div>
+  </div>
+
+  <!-- Add Wisdom Modal -->
+  <div class="modal-overlay" id="addWisdomModal">
+    <div class="modal-box">
+      <h3>💡 إضافة حكمة</h3>
+      <input type="text" id="wisdomName" placeholder="اسمك (اختياري)">
+      <textarea id="wisdomBody" placeholder="اكتب حكمتك هنا..."></textarea>
+      <div class="modal-actions">
+        <button class="btn-cancel" type="button" onclick="closeAddWisdom()">إلغاء</button>
+        <button class="btn-save" type="button" onclick="saveUserWisdom()">حفظ</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/wisdom-luck.js"></script>
+  <script src="js/luck-db.js"></script>
+  <script src="js/zodiac-db.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/updater.js"></script>
+  <script src="js/v63-fixes.js"></script>
+  </div><!-- /faylasoofRoot -->
+</body>
+</html>
