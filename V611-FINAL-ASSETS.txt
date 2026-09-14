@@ -1,0 +1,12 @@
+الفيلسوف v6.1.1 — الأصول المطلوبة
+
+أيقونة التطبيق الخارجية:
+https://g.top4top.io/p_3908h49kh0.png
+
+Splash:
+https://h.top4top.io/p_3908modo01.png
+
+Hydra / لوجو الهيدر والقائمة:
+https://i.top4top.io/p_3908gteua2.png
+
+النسخة تستخدم روابط HTTPS الأصلية داخل WebView مع fallback محلي إن توفر.
