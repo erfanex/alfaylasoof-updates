@@ -1,0 +1,14 @@
+{
+  "versionCode": 66,
+  "versionName": "6.6.0",
+  "downloadUrl": "https://github.com/erfanex/alfaylasoof-updates/releases/download/v6.6.0/alfaylasoof-v6.6.0.apk",
+  "forceUpdate": true,
+  "title": "تتوافر نسخة أحدث",
+  "message": "يتوفر تحديث جديد لتطبيق الفيلسوف. يجب تحديث التطبيق لمتابعة الاستخدام.",
+  "releaseNotes": [
+    "إصلاح مشكلة تعليق التطبيق عند بدء التشغيل",
+    "تحسين استقرار واجهة التطبيق",
+    "إصلاحات وتحسينات داخلية"
+  ],
+  "changelog": "v6.6.0 — إصدار إصلاحات وتحسينات"
+}
