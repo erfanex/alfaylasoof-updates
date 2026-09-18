@@ -1,15 +1,17 @@
 {
   "appName": "الفيلسوف",
-  "versionName": "6.6.0",
-  "versionCode": 66,
+  "versionName": "6.7.0",
+  "versionCode": 67,
   "minimumVersionCode": 66,
   "forceUpdate": true,
-  "downloadUrl": "https://github.com/erfanex/alfaylasoof-updates/releases/download/v6.6.0/alfaylasoof-v6.6.0.apk",
-  "title": "تحديث إجباري للفيلسوف",
-  "message": "يتوفر إصدار جديد من تطبيق الفيلسوف. يجب تحديث التطبيق للمتابعة.",
+  "downloadUrl": "https://github.com/erfanex/alfaylasoof-updates/releases/download/v6.7.0/alfaylasoof-v6.7.0.apk",
+  "title": "تحديث جديد للفيلسوف",
+  "message": "تم إصدار نسخة جديدة من تطبيق الفيلسوف.",
   "releaseNotes": [
-    "إصلاح مشكلة تعليق التطبيق عند بدء التشغيل",
-    "تحسين استقرار واجهة التطبيق",
-    "إصلاحات وتحسينات داخلية"
+    "إلغاء رسالة الأذونات التي تظهر تلقائيًا عند فتح التطبيق",
+    "إزالة أزرار إعادة المحاولة وفتح الفيديو في يوتيوب من مشغل السينما",
+    "تحسين نظام الإشعارات وربطها بالمحتوى الحقيقي",
+    "إضافة إشعار حكمة جديد كل 30 دقيقة",
+    "تحسينات عامة في المظهر والأداء"
   ]
 }
