@@ -1,12 +1,12 @@
 {
   "appName": "الفيلسوف",
-  "versionName": "6.8.0",
-  "versionCode": 68,
-  "minimumVersionCode": 68,
+  "versionName": "6.9.0",
+  "versionCode": 69,
+  "minimumVersionCode": 69,
   "forceUpdate": true,
   "downloadUrl": "https://github.com/erfanex/alfaylasoof-updates/releases/download/v6.8.0/alfaylasoof-v6.8.0.apk",
   "title": "تحديث إجباري جديد للفيلسوف",
-  "message": "يتوفر إصدار 6.8.0 جديد. يجب تحديث التطبيق للمتابعة.",
+  "message": "يتوفر إصدار 6.9.0 جديد. يجب تحديث التطبيق للمتابعة.",
   "releaseNotes": [
     "واجهة عصرية احترافية جديدة",
     "تحسينات بصرية وحركية في واجهة التطبيق",
